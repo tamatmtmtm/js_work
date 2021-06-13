@@ -1,0 +1,171 @@
+// レイアウト幅
+$layout-width-inner: 900;
+
+//マップ型変数breakpointsを定義
+// ブレークポイント
+$breakpoints: (
+  "sp": "screen and (max-width: 767px)",
+  "tab": "screen and (max-width: #{$layout-width-inner - 1px})",
+  "pc": "screen and (min-width: #{$layout-width-inner})",
+) !default;
+
+//メディアクエリ用のmixinを定義。デフォ値はmd
+@mixin mq($breakpoint: md) {
+  //map-get(マップ型変数, キー)で値を取得
+  @media #{map-get($breakpoints, $breakpoint)} {
+    //この中をカスタムできる
+    @content;
+  }
+}
+
+// 変数
+$white: #fff;
+$black : #333;
+$table: "table";
+
+// 定義
+@mixin formBase{
+  border: 1px solid $black;
+  padding: 5px;
+  cursor: pointer;
+  font-size: 14px;
+  width: 100%;
+}
+
+
+// スタイル
+html{
+  font-size: 10px;
+
+  @include mq(sp){
+    font-size: 5px;
+  }
+}
+
+body{
+  color: $black;
+  text-align: center;
+}
+
+.container{
+  width: 90%;
+  max-width: 900px;
+  background-color: #eee;
+  margin: 5rem auto;
+  padding: 4rem 0;
+}
+
+/* !見出し */
+.heading{
+  font-size: 3.6rem;
+  font-weight: bold;
+  margin-bottom: 4rem;
+
+  @include mq(sp){
+    font-size: 5.6rem;
+  }
+}
+
+
+/* !計算ツール */
+.form{
+  &_outer{
+    margin-bottom: 40px;
+  }
+
+  margin: 0 auto 20px;
+  width: 90%;
+  max-width: 500px;
+
+  &__list-item{
+    margin-bottom: 20px;
+  }
+
+  &__label{
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+
+    @include mq(sp){
+      font-size: 16px;
+    }
+  }
+
+  &__input{
+    @include formBase;
+  }
+
+  &__select{
+    @include formBase
+  }
+
+  &__button{
+    border: 1px solid $black;
+    font-size: 16px;
+    box-shadow: 3px 5px #000;
+
+    &:active{
+      box-shadow: none;
+      transform: translateY(5px);
+    }
+  }
+}
+
+.disabled-year, .disabled-date{
+  cursor: auto;
+}
+
+.result{
+  font-weight: bold;
+  font-size: 24px;
+
+  &_part{
+    font-size: 30px;
+  }
+}
+
+/* !使用不可日表 */
+.table{
+  &-content{
+    width: 90%;
+    margin: 0 auto;
+    font-size: 14px;
+    border: 1px solid $black{
+      bottom: none;
+      spacing: 0; 
+    }
+  }
+
+  &-row:nth-child(odd){
+    .#{$table}-month,
+    .#{$table}-days{
+      background-color: $white;
+    }
+  }
+
+  &-heading,
+  &-year,
+  &-month,
+  &-days{
+    border-bottom: 1px solid $black;
+  }
+
+  &-heading{
+    font-size: 16px;
+    padding: 10px 0;
+    background-color: $white;
+  }
+
+  &-year{
+    font-weight: bold;
+    border-right: 1px solid $black;
+  }
+
+  &-month{
+    border-right: 1px solid $black;
+  }
+
+  &-days{
+    padding: 5px 0;
+  }
+}

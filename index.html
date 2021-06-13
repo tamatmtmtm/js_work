@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- reset.css -->
+  <link rel="stylesheet" href="./css/reset.css">
+  <!-- style.css -->
+  <link rel="stylesheet" href="./css/style.css">
+  <title>架空年パス返金額計算</title>
+</head>
+<body>
+  <div class="container">
+    <h1 class="heading">架空年パス返金額計算</h1>
+
+    <div class="form_outer">
+      <form action="" class="form">
+        <dl class="form__list">
+          <div class="form__list-item">
+            <dt class="form__label">年間パスポート購入金額</dt>
+            <select class="form__select js-select" name="price" id="">
+              <option hidden>購入金額</option>
+              <option class="js-option" value="95000">95,000円(大人・中人(改訂前))</option>
+              <option class="js-option" value="100000">100,000円(大人・中人(改訂後))</option>
+              <option class="js-option" value="55000">55,000円(小人(改訂前))</option>
+              <option class="js-option" value="60000">60,000円(小人(改訂後))</option>
+              <option class="js-option" value="75000">75,000円(シニア(改訂前))</option>
+              <option class="js-option" value="80000">80,000円(シニア(改訂後))</option>
+            </select>
+          </div>
+          <div class="form__list-item">
+            <dt class="form__label">有効期限</dt>
+            <input class="form__input validated-date" type="date" required>
+          </div>
+          <div class="form__list-item">
+            <dt class="form__label">1年間での年間パスポート使用不可日数</dt>
+            <input class="form__input disabled-year js-disabled-year" type="number" placeholder="6日間の場合は・6と記入">
+          </div>
+          <div class="form__list-item">
+            <dt class="form__label">2020年2月29日以降の年間パスポート使用不可日数</dt>
+            <input class="form__input disabled-date js-disabled-date" type="number" placeholder="6日間の場合は・6と記入">
+          </div>
+        </dl>
+        <button class="form__button">計算する</button>
+      </form>
+
+      <p class="result">返金額:<span class="result_part"></span>円</p>
+    </div>
+
+    <div class="table_outer">
+      <table class="table-content">
+        <tbody>
+          <tr class="table-row">
+            <th class="table-heading" colspan="3">使用不可日</th>
+          </tr>
+          <tr class="table-row">
+            <td class="table-year" rowspan="5">2019年</td>
+            <td class="table-month">3月</td>
+            <td class="table-days">27日・29日・30日・31日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">7月</td>
+            <td class="table-days">29日・30日・31日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">8月</td>
+            <td class="table-days">19日・20日・21日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">11月</td>
+            <td class="table-days">25日・26日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">12月</td>
+            <td class="table-days">24日・25日・28日・29日・30日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-year" rowspan="8">2020年</td>
+            <td class="table-month">1月</td>
+            <td class="table-days">3日・4日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">3月</td>
+            <td class="table-days">3日・10日・13日・25日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">5月</td>
+            <td class="table-days">3日・4日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">7月</td>
+            <td class="table-days">29日・30日・31日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">8月</td>
+            <td class="table-days">28日・29日・30日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">10月</td>
+            <td class="table-days">3日・15日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">11月</td>
+            <td class="table-days">15日・29日・30日日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">12月</td>
+            <td class="table-days">24日・25日・28日・29日・30日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-year" rowspan="5">2021年</td>
+            <td class="table-month">1月</td>
+            <td class="table-days">3日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">3月</td>
+            <td class="table-days">20日・30日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">5月</td>
+            <td class="table-days">2日・3日・4日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">7月</td>
+            <td class="table-days">29日・30日・31日</td>
+          </tr>
+          <tr class="table-row">
+            <td class="table-month">8月</td>
+            <td class="table-days">20日・30日</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="./js/jquery-3.5.1.min.js"></script>
+  <script src="./js/main.js"></script>
+</body>
+</html>
